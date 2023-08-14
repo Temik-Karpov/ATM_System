@@ -2,7 +2,10 @@ package ru.karpov.ATM.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import ru.karpov.ATM.Security.TripleDES;
+import ru.karpov.ATM.models.BankAccountOwnerAuthInfo;
 import ru.karpov.ATM.repos.BankAccountOwnerAuthInfoRepo;
 import ru.karpov.ATM.repos.BankAccountOwnerRepo;
 

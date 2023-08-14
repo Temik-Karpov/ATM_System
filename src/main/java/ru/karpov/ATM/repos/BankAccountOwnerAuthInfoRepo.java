@@ -6,4 +6,5 @@ import ru.karpov.ATM.models.BankAccountOwnerAuthInfo;
 
 @Repository
 public interface BankAccountOwnerAuthInfoRepo extends JpaRepository<BankAccountOwnerAuthInfo, Long> {
+    BankAccountOwnerAuthInfo findByBankAccountOwnerLogin(final String login);
 }

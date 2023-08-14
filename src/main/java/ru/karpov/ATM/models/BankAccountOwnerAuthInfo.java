@@ -1,14 +1,22 @@
 package ru.karpov.ATM.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class BankAccountOwnerAuthInfo {
     @Id
     private String id;
     private String bankAccountOwnerCode;
+
+    @NotEmpty(message = "login is mandatory")
     private String bankAccountOwnerLogin;
+
+    @NotEmpty(message = "password is mandatory")
     private String bankAccountOwnerPassword;
 
     public String getId() {

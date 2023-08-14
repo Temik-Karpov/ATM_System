@@ -26,6 +26,4 @@ public class GetPagesController extends ATMController {
     {
         return "registrationPage";
     }
-
-
 }
