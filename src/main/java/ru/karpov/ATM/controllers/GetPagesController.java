@@ -26,4 +26,11 @@ public class GetPagesController extends ATMController {
     {
         return "registrationPage";
     }
+
+    @GetMapping("/addBankAccountOwnerInfo")
+    public String getAddBankAccountOwnerInfoPage()
+    {
+        return "addBankAccountOwnerInfo";
+    }
+
 }

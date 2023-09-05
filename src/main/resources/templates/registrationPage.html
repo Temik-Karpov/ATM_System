@@ -6,8 +6,9 @@
 </head>
 <body>
 <form th:action="@{/register}" th:method="post" th:object="${registerInfo}">
-    <input type="text" field="*{bankAccountOwnerLogin}" name="bankAccountOwnerLogin" id="bankAccountOwnerLogin"/><br>
-    <input type="text" field="*{bankAccountOwnerPassword}" id="bankAccountOwnerPassword" name="bankAccountOwnerPassword"/><br>
+    <input type="text" field="*{bankAccountOwnerLogin}" name="bankAccountOwnerLogin" id="bankAccountOwnerLogin"><br>
+    <div errors="*{bankAccountOwnerLogin}"></div>
+    <input type="text" field="*{bankAccountOwnerPassword}" id="bankAccountOwnerPassword" name="bankAccountOwnerPassword"><br>
     <button type="submit">Try</button>
 </form>
 </body>

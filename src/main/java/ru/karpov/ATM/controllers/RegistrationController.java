@@ -11,6 +11,7 @@ import ru.karpov.ATM.repos.BankAccountOwnerAuthInfoRepo;
 import ru.karpov.ATM.repos.BankAccountOwnerRepo;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @Controller
 public class RegistrationController extends ATMController {
@@ -21,6 +22,12 @@ public class RegistrationController extends ATMController {
         super(bankAccountOwnerRepo, tripleDES, bankAccountOwnerAuthInfoRepo);
     }
 
+    @PostMapping("/hello")
+    public String test(final Integer number)
+    {
+        return "redirect:/registrationPage";
+    }
+
     @PostMapping("/register")
     public String registerBankAccountOwner(@ModelAttribute("registerInfo") @Valid
                                                final BankAccountOwnerAuthInfo bankAccountOwnerAuthInfo,
@@ -29,13 +36,12 @@ public class RegistrationController extends ATMController {
     {
         if(bindingResult.hasErrors())
         {
-            return "registrationPage";
+            return "redirect:/registrationPage";
         }
         final String encryptPassword = tripleDES.encrypt(bankAccountOwnerAuthInfo.getBankAccountOwnerPassword());
         bankAccountOwnerAuthInfo.setBankAccountOwnerPassword(encryptPassword);
-        bankAccountOwnerAuthInfo.setId("1");
-        bankAccountOwnerAuthInfo.setBankAccountOwnerCode("112233");
+        bankAccountOwnerAuthInfo.setId(UUID.randomUUID().toString());
         bankAccountOwnerAuthInfoRepo.save(bankAccountOwnerAuthInfo);
-        return "addBankAccountOwnerInfo";
+        return "redirect:/addBankAccountOwnerInfo";
     }
 }

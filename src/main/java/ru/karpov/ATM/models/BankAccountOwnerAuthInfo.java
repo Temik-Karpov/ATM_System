@@ -11,13 +11,16 @@ import javax.validation.constraints.NotEmpty;
 public class BankAccountOwnerAuthInfo {
     @Id
     private String id;
-    private String bankAccountOwnerCode;
 
     @NotEmpty(message = "login is mandatory")
     private String bankAccountOwnerLogin;
 
     @NotEmpty(message = "password is mandatory")
     private String bankAccountOwnerPassword;
+
+    public BankAccountOwnerAuthInfo() {
+
+    }
 
     public String getId() {
         return id;
@@ -27,12 +30,10 @@ public class BankAccountOwnerAuthInfo {
         this.id = id;
     }
 
-    public String getBankAccountOwnerCode() {
-        return bankAccountOwnerCode;
-    }
-
-    public void setBankAccountOwnerCode(final String bankAccountOwnerCode) {
-        this.bankAccountOwnerCode = bankAccountOwnerCode;
+    public BankAccountOwnerAuthInfo(@NotEmpty(message = "login is mandatory") final String bankAccountOwnerLogin,
+                                    @NotEmpty(message = "password is mandatory") final String bankAccountOwnerPassword) {
+        this.bankAccountOwnerLogin = bankAccountOwnerLogin;
+        this.bankAccountOwnerPassword = bankAccountOwnerPassword;
     }
 
     public String getBankAccountOwnerLogin() {
