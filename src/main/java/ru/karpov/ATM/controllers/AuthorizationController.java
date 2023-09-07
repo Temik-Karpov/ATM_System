@@ -26,10 +26,10 @@ public class AuthorizationController extends ATMController {
         final BankAccountOwnerAuthInfo owner = bankAccountOwnerAuthInfoRepo.findByBankAccountOwnerLogin(login);
         if(owner == null) {
             //TODO: валидация нужна
-            return "authorizationPage";
+            return "redirect:/authorizationPage";
         }
         final String password = tripleDES.decrypt(owner.getBankAccountOwnerPassword());
-         return bankAccountOwnerAuthInfo.getBankAccountOwnerPassword().equals(password) ? "authProfilePage" :
-                 "authorizationPage";
+        return bankAccountOwnerAuthInfo.getBankAccountOwnerPassword().equals(password) ? "redirect:/authProfilePage" :
+                 "redirect:/authorizationPage";
     }
 }

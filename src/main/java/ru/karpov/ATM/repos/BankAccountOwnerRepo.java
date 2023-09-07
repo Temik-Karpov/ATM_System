@@ -6,5 +6,4 @@ import ru.karpov.ATM.models.BankAccountOwner;
 
 @Repository
 public interface BankAccountOwnerRepo extends JpaRepository<BankAccountOwner, Long> {
-
 }

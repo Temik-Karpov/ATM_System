@@ -22,12 +22,6 @@ public class RegistrationController extends ATMController {
         super(bankAccountOwnerRepo, tripleDES, bankAccountOwnerAuthInfoRepo);
     }
 
-    @PostMapping("/hello")
-    public String test(final Integer number)
-    {
-        return "redirect:/registrationPage";
-    }
-
     @PostMapping("/register")
     public String registerBankAccountOwner(@ModelAttribute("registerInfo") @Valid
                                                final BankAccountOwnerAuthInfo bankAccountOwnerAuthInfo,

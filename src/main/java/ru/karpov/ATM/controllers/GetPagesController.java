@@ -33,4 +33,10 @@ public class GetPagesController extends ATMController {
         return "addBankAccountOwnerInfo";
     }
 
+    @GetMapping("/authProfilePage")
+    public String getAuthProfilePage()
+    {
+        return "authProfilePage";
+    }
+
 }
